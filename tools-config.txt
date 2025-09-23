@@ -1,0 +1,94 @@
+// FORMATO DE CONFIGURACIÓN DE HERRAMIENTAS
+// ==========================================
+// Campos disponibles para cada herramienta:
+//
+// CAMPOS OBLIGATORIOS:
+// - ID: [string] Identificador único de la herramienta
+// - Description: [string] Descripción de qué hace la herramienta
+// - Input Schema: [JSON] Schema de los parámetros de entrada
+// - Output Schema: [JSON] Schema de la respuesta esperada
+// - Request Type: [GET|POST] Tipo de petición HTTP
+// - URL: [string] Endpoint de la API
+//
+// CAMPOS OPCIONALES PARA AUTENTICACIÓN:
+// - Headers: [JSON] Headers HTTP adicionales (ej: {"Authorization": "Bearer ${TOKEN}"})
+// - Query Params: [JSON] Parámetros de consulta fijos (ej: {"api_key": "${API_KEY}"})
+// - Body Template: [JSON] Template del body para POST (ej: {"api_key": "${KEY}", "data": "{INPUT_DATA}"})
+//
+// VARIABLES DE ENTORNO SOPORTADAS:
+// - ${TOKEN} → process.env.TOKEN
+// - ${API_KEY} → process.env.API_KEY
+// - ${OPENAI_API_KEY} → process.env.OPENAI_API_KEY
+// - ${ANY_ENV_VAR} → process.env.ANY_ENV_VAR
+//
+// PLACEHOLDERS ESPECIALES:
+// - {INPUT_DATA} → Se reemplaza con los datos de entrada del usuario
+// - {USER_ID} → Se reemplaza con el parámetro userId si existe
+//
+// EJEMPLO CON AUTENTICACIÓN:
+// - ID: weather-with-auth
+// - Description: Get weather with API key
+// - Input Schema: {"city": {"type": "string"}}
+// - Output Schema: {"temp": {"type": "number"}}
+// - Request Type: GET
+// - URL: https://api.weather.com/v1/current
+// - Headers: {"Authorization": "Bearer ${WEATHER_TOKEN}"}
+// - Query Params: {"key": "${WEATHER_API_KEY}", "units": "metric"}
+//
+// ==========================================
+
+- ID: get-user
+- Description: Get user information by ID from JSONPlaceholder
+- Input Schema: {"userId": {"type": "string", "description": "User ID (1-10)"}}
+- Output Schema: {"id": {"type": "number"}, "name": {"type": "string"}, "email": {"type": "string"}, "phone": {"type": "string"}}
+- Request Type: GET
+- URL: https://jsonplaceholder.typicode.com/users
+
+- ID: get-posts
+- Description: Get all posts or posts by user ID
+- Input Schema: {"userId": {"type": "string", "description": "Optional user ID to filter posts", "optional": true}}
+- Output Schema: {"id": {"type": "number"}, "title": {"type": "string"}, "body": {"type": "string"}, "userId": {"type": "number"}}
+- Request Type: GET
+- URL: https://jsonplaceholder.typicode.com/posts
+
+- ID: create-post
+- Description: Create a new blog post (fake request for testing)
+- Input Schema: {"title": {"type": "string", "description": "Post title"}, "body": {"type": "string", "description": "Post content"}, "userId": {"type": "number", "description": "Author ID"}}
+- Output Schema: {"id": {"type": "number"}, "title": {"type": "string"}, "body": {"type": "string"}, "userId": {"type": "number"}}
+- Request Type: POST
+- URL: https://jsonplaceholder.typicode.com/posts
+
+- ID: cat-fact
+- Description: Get a random cat fact
+- Input Schema: {}
+- Output Schema: {"fact": {"type": "string"}, "length": {"type": "number"}}
+- Request Type: GET
+- URL: https://catfact.ninja/fact
+
+- ID: dog-image
+- Description: Get a random dog image
+- Input Schema: {}
+- Output Schema: {"message": {"type": "string"}, "status": {"type": "string"}}
+- Request Type: GET
+- URL: https://dog.ceo/api/breeds/image/random
+
+- ID: test-post
+- Description: Test POST request with httpbin
+- Input Schema: {"message": {"type": "string", "description": "Test message"}, "data": {"type": "string", "description": "Test data"}}
+- Output Schema: {"json": {"type": "object"}, "url": {"type": "string"}, "headers": {"type": "object"}}
+- Request Type: POST
+- URL: https://httpbin.org/post
+
+- ID: fake-user
+- Description: Get fake user data from ReqRes
+- Input Schema: {"userId": {"type": "string", "description": "User ID (1-12)"}}
+- Output Schema: {"data": {"type": "object"}, "support": {"type": "object"}}
+- Request Type: GET
+- URL: https://reqres.in/api/users
+
+- ID: quote-of-day
+- Description: Get a random quote
+- Input Schema: {}
+- Output Schema: {"content": {"type": "string"}, "author": {"type": "string"}}
+- Request Type: GET
+- URL: https://api.quotable.io/random

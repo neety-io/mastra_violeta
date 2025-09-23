@@ -1,0 +1,27 @@
+{
+  "id": 12345,
+  "name": "John",
+  "email": "john@example.com",
+  "age": 28,
+  "street": "123 Main St",
+  "city": "Boston",
+  "zip": "02101",
+  "phone": "555-0123",
+  "skills": ["JavaScript", "Python"],
+  "employment": {
+    "company": "TechCorp",
+    "position": "Developer",
+    "start_date": "2020-01-15"
+  },
+  "preferences": {
+    "theme": "dark",
+    "notifications": true
+  },
+  "social": {
+    "twitter": "@john_dev"
+  },
+  "metadata": {
+    "created": "2023-01-01",
+    "source": "registration_form"
+  }
+}

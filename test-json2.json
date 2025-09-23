@@ -1,0 +1,42 @@
+{
+  "user_id": 12345,
+  "full_name": "John Doe",
+  "mail_address": "john.doe@example.com",
+  "birth_year": 1995,
+  "address": {
+    "street_address": "123 Main Street",
+    "city_name": "Boston",
+    "postal_code": "02101",
+    "country": "USA"
+  },
+  "telephone": "+1-555-0123",
+  "technical_skills": ["JavaScript", "Python", "React", "Node.js"],
+  "work": {
+    "company_name": "TechCorp Inc.",
+    "job_title": "Senior Developer", 
+    "employment_start": "2020-01-15",
+    "salary": 85000,
+    "department": "Engineering"
+  },
+  "user_preferences": {
+    "ui_theme": "dark",
+    "email_notifications": true,
+    "language": "en",
+    "timezone": "EST"
+  },
+  "social_media": {
+    "twitter_handle": "@john_dev",
+    "linkedin": "linkedin.com/in/johndoe",
+    "github": "github.com/johndoe"
+  },
+  "profile": {
+    "bio": "Full-stack developer passionate about clean code",
+    "avatar_url": "https://example.com/avatar.jpg",
+    "verified": true
+  },
+  "audit": {
+    "last_updated": "2024-08-02",
+    "data_source": "user_profile_sync",
+    "version": 2
+  }
+}
