@@ -3,7 +3,6 @@ import { PinoLogger } from '@mastra/loggers';
 import { LibSQLStore } from '@mastra/libsql';
 import { weatherWorkflow } from './workflows/weather-workflow';
 import { contentWorkflow, aiContentWorkflow, parallelAnalysisWorkflow, conditionalWorkflow } from './workflows/content-workflow';
-import { linkedinScraperAgent } from './agents/linkdinScraper';
 import { fuserAgent } from './agents/fuser-agent';
 import { fabricadosAgent } from './agents/fabricados';
 
@@ -18,11 +17,4 @@ export const mastra = new Mastra({
     name: 'Mastra',
     level: 'info',
   }),
-  server: {
-    port: 3000,
-    timeout: 10000, 
-    cors: {
-      origin: '*'
-    },
-  },
 })
