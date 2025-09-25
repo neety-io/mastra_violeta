@@ -3,8 +3,5 @@
   "main": "./index.ts",
   "compatibility_date": "2025-04-01",
   "compatibility_flags": ["nodejs_compat", "nodejs_compat_populate_process_env"],
-  "observability": { "logs": { "enabled": true } },
-  "vars": {
-    "OPENAI_API_KEY": "DCQ5Mry92VxvYaSHilSPPZL1lfoMttOu_OKIv152Dl2lKrwQHddh75iTtcTzkIn_7wn5iT5QcfT3BlbkFJQuKNmfdocoSsQDvC4wKmEa9taRxcAgsf7"
-    }
+  "observability": { "logs": { "enabled": true } }
 }
