@@ -1,18 +1,17 @@
 import { Mastra } from '@mastra/core/mastra';
 import { PinoLogger } from '@mastra/loggers';
-import { LibSQLStore } from '@mastra/libsql';
-import { fuserAgent } from './agents/fuser-agent';
-import { fabricadosAgent } from './agents/fabricados';
-
+// Use a simple in-memory storage for Workers
+import { simpleAgent } from './agents/simple-agent';
+import { CloudflareDeployer } from "@mastra/deployer-cloudflare"; 
 
 export const mastra = new Mastra({
   workflows: {},
-  agents: { fuserAgent, fabricadosAgent},
-  storage: new LibSQLStore({
-    url: ":memory:",
-  }),
+  agents: { simpleAgent }, // Simple agent without file dependencies
   logger: new PinoLogger({
     name: 'Mastra',
     level: 'info',
   }),
-})
+  deployer: new CloudflareDeployer({
+    projectName: "violeta-mastra",
+  }),
+});
