@@ -1,6 +1,7 @@
-import { openai } from '@ai-sdk/openai';
+import { createOpenAI } from '@ai-sdk/openai';
 import { Agent } from '@mastra/core/agent';
 
+// Create OpenAI instance with environment variable
 export const simpleAgent = new Agent({
   name: 'Simple Agent',
   instructions: `You are a simple demonstration agent. Your purpose is to:
@@ -9,5 +10,7 @@ export const simpleAgent = new Agent({
   - Provide helpful information about the system
   
   Keep your responses friendly and concise.`,
-  model: openai("gpt-4o-mini"), // Use cheaper model for testing
+  model: createOpenAI({
+    apiKey: process.env.OPENAI_API_KEY || ""
+  })("gpt-4o-mini"),
 });
